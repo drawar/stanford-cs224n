@@ -21,6 +21,12 @@ class PartialParse(object):
         self.sentence = sentence
 
         ### YOUR CODE HERE
+        self.stack = ["ROOT"]
+        
+        self.buffer = list(sentence)
+        # if use self.buffer = sentence then self.buffer will reference to sentence and whatever changes made to black will be present in white
+        self.dependencies = []
+
         ### END YOUR CODE
 
     def parse_step(self, transition):
@@ -31,6 +37,18 @@ class PartialParse(object):
                         and right-arc transitions.
         """
         ### YOUR CODE HERE
+        if transition == "S":
+            top_buf = self.buffer.pop(0)
+            self.stack.append(top_buf)
+        else:
+            top_stack = self.stack[-1]
+            next_top_stack = self.stack[-2]
+            if transition == "LA":
+                self.dependencies.append((top_stack, next_top_stack))
+                del self.stack[-2]
+            else:
+                self.dependencies.append((next_top_stack, top_stack))
+                del self.stack[-1]
         ### END YOUR CODE
 
     def parse(self, transitions):

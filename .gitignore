@@ -17,3 +17,4 @@ assignment1/.env/
 .npy
 .py.lprof
 Makefile
+.DS_Store

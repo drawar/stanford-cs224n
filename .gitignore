@@ -1,19 +1,15 @@
-# Jupyter Notebook
-*.ipynb_checkpoints
-
-# pyenv
-*.python-version
-
-# datasets
 assignment1/utils/datasets/
-
-#virtualenv
 assignment1/.env/
+assignment2/.idea/
+assignment2/data/
 
+
+*.python-version
 *.pyc
 *.eps
 *.svg
 *.ipynb
+*.ipynb_checkpoints
 *.npy
 *.py.lprof
 Makefile

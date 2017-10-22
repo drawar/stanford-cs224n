@@ -1,8 +1,8 @@
 # Jupyter Notebook
-.ipynb_checkpoints
+*.ipynb_checkpoints
 
 # pyenv
-.python-version
+*.python-version
 
 # datasets
 assignment1/utils/datasets/
@@ -10,11 +10,11 @@ assignment1/utils/datasets/
 #virtualenv
 assignment1/.env/
 
-.pyc
-.eps
-.svg
-.ipynb
-.npy
-.py.lprof
+*.pyc
+*.eps
+*.svg
+*.ipynb
+*.npy
+*.py.lprof
 Makefile
 .DS_Store

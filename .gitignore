@@ -1,0 +1,19 @@
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# datasets
+assignment1/utils/datasets/
+
+#virtualenv
+assignment1/.env/
+
+.pyc
+.eps
+.svg
+.ipynb
+.npy
+.py.lprof
+Makefile

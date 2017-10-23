@@ -83,6 +83,23 @@ def minibatch_parse(sentences, model, batch_size):
     """
 
     ### YOUR CODE HERE
+    partial_parses = [PartialParse(sentence) for sentence in sentences]
+
+    # make a shallow copy of partial_parses
+    # can also use slicing i.e. partial_parses[:]
+    unfinished_parses = list(partial_parses)
+
+    while unfinished_parses:
+        parses = unfinished_parses[:batch_size]
+        transitions = model.predict(parses)
+        for parse, transition in zip(parses, transitions):
+            parse.parse_step(transition)
+            # this is the correct way to remove complete parses from unfished_parses
+            # wrong way: del unfinished_parses[:batch_size]
+            if not parse.buffer and len(parse.stack) < 2:
+                unfinished_parses.remove(parse)
+
+    dependencies = [parse.dependencies for parse in partial_parses]
     ### END YOUR CODE
 
     return dependencies
